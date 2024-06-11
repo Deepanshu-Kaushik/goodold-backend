@@ -12,7 +12,7 @@ export const cloudinaryUpload = async (picturePath) => {
       resource_type: "auto",
     });
 
-    return result.url;
+    return result.secure_url;
   } catch (error) {
     fs.unlinkSync(picturePath);
     return error.message;

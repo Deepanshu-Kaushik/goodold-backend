@@ -61,10 +61,9 @@ export async function login(req, res) {
 export async function token(req, res) {
   try {
     const { token } = req.body;
-    console.log(token);
     const claims = jwt.verify(token, process.env.JWT_SECRET);
     res.status(200).json({ userId: claims.id });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(403).json({ error: error.message });
   }
 }

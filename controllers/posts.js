@@ -10,7 +10,9 @@ const createPost = async (req, res) => {
     const { userId, description } = req.body;
     const { firstName, lastName, location, userPicturePath } =
       await User.findById(userId);
-    const postPicturePath = await cloudinaryUpload(req.file.path);
+    let postPicturePath = "";
+    if (req.file) postPicturePath = await cloudinaryUpload(req.file.path);
+    else return;
     fs.unlinkSync(req.file.path);
     const newPost = new Post({
       userId,
@@ -25,19 +27,19 @@ const createPost = async (req, res) => {
     });
 
     await newPost.save();
-    const posts = await Post.find();
+    const posts = await Post.find().sort({ createdAt: -1 });
     const formattedPosts = formatPosts(posts);
     res.status(201).json(formattedPosts);
   } catch (error) {
     console.log(error.message);
-    res.status(409).json({ error: err.message });
+    res.status(409).json({ error: error.message });
   }
 };
 
 /* READ */
 const getFeedPosts = async (req, res) => {
   try {
-    const posts = await Post.find();
+    const posts = await Post.find().sort({ createdAt: -1 });
     const formattedPosts = formatPosts(posts);
     res.status(200).json(formattedPosts);
   } catch (error) {
@@ -74,7 +76,7 @@ const likePost = async (req, res) => {
 
     updatedPost = updatedPost.toJSON();
     const formattedPost = { postId: updatedPost._id, ...updatedPost };
-    res.status(200).json(formattedPost);
+    res.status(201).json(formattedPost);
   } catch (error) {
     res.status(404).json({ error: error.message });
   }

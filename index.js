@@ -53,7 +53,6 @@ app.use("/auth", authRoutes);
 app.use("/user", verifyToken, userRoutes);
 app.use("/posts", verifyToken, postRoutes);
 
-
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;
 mongoose
