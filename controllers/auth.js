@@ -18,7 +18,8 @@ export async function register(req, res) {
     } = req.body;
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
-    const userPicturePath = await cloudinaryUpload(req.file.path);
+    const { pictureUrl: userPicturePath, picturePublicId: userPictureId } =
+      await cloudinaryUpload(req.file.path);
     fs.unlinkSync(req.file.path);
     const newUser = await User.create({
       firstName,
@@ -26,6 +27,7 @@ export async function register(req, res) {
       email,
       password: passwordHash,
       userPicturePath,
+      userPictureId,
       friends,
       location,
       occupation,
@@ -55,15 +57,5 @@ export async function login(req, res) {
     res.status(200).json({ token, user: userObject });
   } catch (error) {
     res.status(500).json({ error: error.message });
-  }
-}
-
-export async function token(req, res) {
-  try {
-    const { token } = req.body;
-    const claims = jwt.verify(token, process.env.JWT_SECRET);
-    res.status(200).json({ userId: claims.id });
-  } catch (error) {
-    res.status(403).json({ error: error.message });
   }
 }

@@ -29,22 +29,15 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    userPictureId: String,
     friends: {
       type: Array,
       default: [],
     },
-    location: {
-      type: String,
-    },
-    occupation: {
-      type: String,
-    },
-    viewedProfile: {
-      type: Number,
-    },
-    impressions: {
-      type: Number,
-    },
+    location: String,
+    occupation: String,
+    viewedProfile: Number,
+    impressions: Number,
   },
   { timestamps: true }
 );

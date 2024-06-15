@@ -12,14 +12,14 @@ export const cloudinaryUpload = async (picturePath) => {
       resource_type: "auto",
     });
 
-    return result.secure_url;
+    return { pictureUrl: result.secure_url, picturePublicId: result.public_id };
   } catch (error) {
     fs.unlinkSync(picturePath);
     return error.message;
   }
 };
 
-export const cloudinaryDelete = async (file) => {
+export const cloudinaryDelete = async (pictureId) => {
   try {
     cloudinary.config({
       cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -27,7 +27,7 @@ export const cloudinaryDelete = async (file) => {
       api_secret: process.env.CLOUDINARY_API_SECRET,
     });
 
-    const result = await cloudinary.uploader.destroy(file);
+    const result = await cloudinary.uploader.destroy(pictureId);
     return result;
   } catch (error) {
     return error.message;

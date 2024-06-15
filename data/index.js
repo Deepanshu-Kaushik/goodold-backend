@@ -19,7 +19,9 @@ export const users = [
     lastName: "me",
     email: "aaaaaaa@gmail.com",
     password: "$2b$10$dsasdgsagasda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
-    userPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p11_mtcbjs.jpg",
+    userPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p11_mtcbjs.jpg",
+    userPictureId: "p11_mtcbjs",
     friends: [],
     location: "San Fran, CA",
     occupation: "Software Engineer",
@@ -35,7 +37,9 @@ export const users = [
     lastName: "Ralph",
     email: "thataaa@gmail.com",
     password: "$!FEAS@!O)_IDJda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
-    userPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p12_skqgj2.jpg",
+    userPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p12_skqgj2.jpg",
+    userPictureId: "p12_skqgj2",
     friends: [],
     location: "New York, CA",
     occupation: "Degenerate",
@@ -51,7 +55,9 @@ export const users = [
     lastName: "Guy",
     email: "someguy@gmail.com",
     password: "da39a3ee5e6b4b0d3255bfef95601890afd80709",
-    userPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p4_csoxgw.jpg",
+    userPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p4_csoxgw.jpg",
+    userPictureId: "p4_csoxgw",
     friends: [],
     location: "Canada, CA",
     occupation: "Data Scientist Hacker",
@@ -67,7 +73,9 @@ export const users = [
     lastName: "Doing",
     email: "whatchadoing@gmail.com",
     password: "$2b$10$dsasdgsagasda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
-    userPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p6_wod8ur.jpg",
+    userPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p6_wod8ur.jpg",
+    userPictureId: "p6_wod8ur",
     friends: [],
     location: "Korea, CA",
     occupation: "Educator",
@@ -83,7 +91,9 @@ export const users = [
     lastName: "Doe",
     email: "janedoe@gmail.com",
     password: "$2b$10$dsasdgsagasda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
-    userPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p5_z2wvbf.jpg",
+    userPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p5_z2wvbf.jpg",
+    userPictureId: "p5_z2wvbf",
     friends: [],
     location: "Utah, CA",
     occupation: "Hacker",
@@ -99,7 +109,9 @@ export const users = [
     lastName: "Dunn",
     email: "harveydunn@gmail.com",
     password: "$2b$10$dsasdgsagasda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
-    userPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p7_z573bh.jpg",
+    userPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p7_z573bh.jpg",
+    userPictureId: "p7_z573bh",
     friends: [],
     location: "Los Angeles, CA",
     occupation: "Journalist",
@@ -115,7 +127,9 @@ export const users = [
     lastName: "Vowel",
     email: "carlyvowel@gmail.com",
     password: "$2b$10$dsasdgsagasda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
-    userPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925363/p8_x8y5py.jpg",
+    userPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925363/p8_x8y5py.jpg",
+    userPictureId: "p8_x8y5py",
     friends: [],
     location: "Chicago, IL",
     occupation: "Nurse",
@@ -131,7 +145,9 @@ export const users = [
     lastName: "Dunn",
     email: "jessicadunn@gmail.com",
     password: "$2b$10$dsasdgsagasda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
-    userPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925363/p9_ku4lww.jpg",
+    userPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925363/p9_ku4lww.jpg",
+    userPictureId: "p9_ku4lww",
     friends: [],
     location: "Washington, DC",
     occupation: "A Student",
@@ -147,7 +163,9 @@ export const users = [
     lastName: "Kaushik",
     email: "deepanshuk522@gmail.com",
     password: "$2b$10$4sxVyC/UmEAnq9XvTA/Gi.rAa5PSyaMbLEwLwZfgrvPh75XxhJxGm",
-    userPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1718083370/iijvyhdqcjnegnyxn9rw.jpg",
+    userPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1718083370/iijvyhdqcjnegnyxn9rw.jpg",
+    userPictureId: "iijvyhdqcjnegnyxn9rw",
     friends: [],
     location: "New Delhi",
     occupation: "Software Engineer",
@@ -167,8 +185,11 @@ export const posts = [
     lastName: "Ralph",
     location: "New York, CA",
     description: "Some really long random description",
-    postPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925363/post1_bciaxr.jpg",
-    userPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p12_skqgj2.jpg",
+    postPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925363/post1_bciaxr.jpg",
+    postPictureId: "post1_bciaxr",
+    userPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p12_skqgj2.jpg",
     likes: new Map([
       [userIds[0], true],
       [userIds[2], true],
@@ -189,8 +210,11 @@ export const posts = [
     location: "Korea, CA",
     description:
       "Another really long random description. This one is longer than the previous one.",
-    postPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925364/post2_g5vj8j.jpg",
-    userPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p6_wod8ur.jpg",
+    postPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925364/post2_g5vj8j.jpg",
+    postPictureId: "post2_g5vj8j",
+    userPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p6_wod8ur.jpg",
     likes: new Map([
       [userIds[7], true],
       [userIds[4], true],
@@ -212,8 +236,11 @@ export const posts = [
     location: "Utah, CA",
     description:
       "This is the last really long random description. This one is longer than the previous one.",
-    postPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925363/post3_qaoy6p.jpg",
-    userPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p5_z2wvbf.jpg",
+    postPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925363/post3_qaoy6p.jpg",
+    postPictureId: "post3_qaoy6p",
+    userPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p5_z2wvbf.jpg",
     likes: new Map([
       [userIds[1], true],
       [userIds[6], true],
@@ -236,8 +263,11 @@ export const posts = [
     location: "Los Angeles, CA",
     description:
       "This is the last really long random description. This one is longer than the previous one. Man I'm bored. I'm going to keep typing until I run out of things to say.",
-    postPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925364/post7_mgjizl.jpg",
-    userPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p7_z573bh.jpg",
+    postPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925364/post7_mgjizl.jpg",
+    postPictureId: "post7_mgjizl",
+    userPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925362/p7_z573bh.jpg",
     likes: new Map([
       [userIds[1], true],
       [userIds[6], true],
@@ -260,8 +290,11 @@ export const posts = [
     location: "Chicago, IL",
     description:
       "Just a short description. I'm tired of typing. I'm going to play video games now.",
-    postPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925364/post5_vyldew.jpg",
-    userPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925363/p8_x8y5py.jpg",
+    postPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925364/post5_vyldew.jpg",
+    postPictureId: "post5_vyldew",
+    userPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925363/p8_x8y5py.jpg",
     likes: new Map([
       [userIds[1], true],
       [userIds[3], true],
@@ -284,8 +317,11 @@ export const posts = [
     location: "Washington, DC",
     description:
       "For the last time, I'm going to play video games now. I'm tired of typing. I'm going to play video games now.",
-    postPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925364/post6_fmtmvt.jpg",
-    userPicturePath: "https://res.cloudinary.com/deepanshu522/image/upload/v1717925363/p9_ku4lww.jpg",
+    postPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925364/post6_fmtmvt.jpg",
+    postPictureId: "post6_fmtmvt",
+    userPicturePath:
+      "https://res.cloudinary.com/deepanshu522/image/upload/v1717925363/p9_ku4lww.jpg",
     likes: new Map([
       [userIds[1], true],
       [userIds[2], true],

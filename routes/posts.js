@@ -1,5 +1,12 @@
 import express from "express";
-import { deletePost, getFeedPosts, getUserPosts, likePost } from "../controllers/posts.js";
+import {
+  deletePost,
+  editPost,
+  getFeedPosts,
+  getUserPosts,
+  likePost,
+  newComment
+} from "../controllers/posts.js";
 
 const router = express.Router();
 
@@ -8,9 +15,11 @@ router.get("/", getFeedPosts);
 router.get("/:userId/posts", getUserPosts);
 
 /* UPDATE */
-router.patch("/:id/like", likePost);
+router.patch("/:postId/like", likePost);
+router.patch("/:postId/edit", editPost);
+router.patch("/:postId/comment", newComment);
 
 /* DELETE */
-router.delete("/delete", deletePost);
+router.delete("/:postId/delete", deletePost);
 
 export default router;
