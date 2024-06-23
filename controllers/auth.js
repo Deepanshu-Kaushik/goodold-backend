@@ -18,9 +18,19 @@ export async function register(req, res) {
     } = req.body;
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
-    const { pictureUrl: userPicturePath, picturePublicId: userPictureId } =
-      await cloudinaryUpload(req.file.path);
-    fs.unlinkSync(req.file.path);
+    let userPicturePath, userPictureId;
+    if (req.file) {
+      const { pictureUrl, picturePublicId } = await cloudinaryUpload(
+        req.file.path
+      );
+      userPicturePath = pictureUrl;
+      userPictureId = picturePublicId;
+      fs.unlinkSync(req.file.path);
+    } else {
+      userPicturePath = process.env.DEFAULT_USER_PICTURE_PATH;
+      userPictureId = process.env.DEFAULT_USER_PICTURE_ID;
+    }
+
     const newUser = await User.create({
       firstName,
       lastName,
@@ -35,7 +45,10 @@ export async function register(req, res) {
       impressions: Math.floor(Math.random() * 10000),
     });
 
-    res.status(201).json(newUser);
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
+    let userObject = newUser.toObject();
+    delete userObject.password;
+    res.status(200).json({ token, user: userObject });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
