@@ -12,7 +12,7 @@ const router = express.Router();
 
 /* READ */
 router.get("/", getFeedPosts);
-router.get("/:userId/posts", getUserPosts);
+router.get("/:userId", getUserPosts);
 
 /* UPDATE */
 router.patch("/:postId/like", likePost);

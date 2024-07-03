@@ -13,6 +13,7 @@ import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/user.js";
 import postRoutes from "./routes/posts.js";
+import messageRoutes from "./routes/message.js";
 import { register } from "./controllers/auth.js";
 import { createPost } from "./controllers/posts.js";
 import { verifyToken } from "./middlewares/auth.js";
@@ -26,7 +27,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config();
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server, {
+export const io = new Server(server, {
   cors: {
     origin: "*",
   },
@@ -61,33 +62,19 @@ app.post("/posts", verifyToken, upload.single("picture"), createPost);
 app.use("/auth", authRoutes);
 app.use("/user", verifyToken, userRoutes);
 app.use("/posts", verifyToken, postRoutes);
+app.use("/message", verifyToken, messageRoutes);
 
+/* Socket */
+export const userSocketMap = {};
 io.on("connection", (socket) => {
   console.log(`${socket.id} connected`);
 
+  const userId = socket.handshake.query.userId;
+  if (userId) userSocketMap[userId] = socket.id;
+
   socket.on("disconnect", () => {
     console.log(`${socket.id} disconnected`);
-  });
-  socket.on("send-message", (message) => {
-    console.log(message);
-    const rooms = Array.from(socket.rooms);
-
-    rooms.forEach((room) => {
-      if (room !== socket.id) {
-        socket.to(room).emit("response-message", message);
-      }
-    });
-  });
-  socket.on("join-room", (selfRoom, friendRoom) => {
-    // const roomsAlreadyJoined = Array.from(socket.rooms);
-    // roomsAlreadyJoined.forEach((room) => {
-    //   socket.leave(room);
-    //   console.log(`Left room ${room}`);
-    // });
-    if (selfRoom && friendRoom) {
-      socket.join([selfRoom, friendRoom]);
-      console.log(`Joined rooms ${selfRoom} ${friendRoom}`);
-    }
+    delete userSocketMap[userId];
   });
 });
 

@@ -4,9 +4,7 @@ import formatFriends from "../utils/formatFriends.js";
 const getUser = async (req, res) => {
   try {
     const { id } = req.params;
-    let user = await User.findById(id);
-    user = user.toObject();
-    delete user.password;
+    let user = await User.findById(id).select("-password");
     res.status(200).json(user);
   } catch (error) {
     res.status(404).json({ error: error.message });
