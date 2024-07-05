@@ -55,6 +55,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+app.get("/", (_, res) => {
+  res.status(200).send("Hello, world!");
+});
+
 /* ROUTES WITH FILES */
 app.post("/auth/register", upload.single("picture"), register);
 app.post("/posts", verifyToken, upload.single("picture"), createPost);
@@ -64,7 +68,7 @@ app.use("/auth", authRoutes);
 app.use("/user", verifyToken, userRoutes);
 app.use("/posts", verifyToken, postRoutes);
 app.use("/message", verifyToken, messageRoutes);
-app.use('/search-user', verifyToken, searchRoutes);
+app.use("/search-user", verifyToken, searchRoutes);
 
 /* Socket */
 export const userSocketMap = {};
