@@ -14,6 +14,7 @@ import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/user.js";
 import postRoutes from "./routes/posts.js";
 import messageRoutes from "./routes/message.js";
+import searchRoutes from "./routes/searchUser.js";
 import { register } from "./controllers/auth.js";
 import { createPost } from "./controllers/posts.js";
 import { verifyToken } from "./middlewares/auth.js";
@@ -63,6 +64,7 @@ app.use("/auth", authRoutes);
 app.use("/user", verifyToken, userRoutes);
 app.use("/posts", verifyToken, postRoutes);
 app.use("/message", verifyToken, messageRoutes);
+app.use('/search-user', verifyToken, searchRoutes);
 
 /* Socket */
 export const userSocketMap = {};

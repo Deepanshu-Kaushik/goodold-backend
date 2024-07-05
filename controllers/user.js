@@ -48,7 +48,7 @@ const addRemoveFriend = async (req, res) => {
     const friends = await Promise.all(
       user.friends.map((id) => User.findById(id))
     );
-    
+
     const formattedFriends = formatFriends(friends);
     res.status(200).json(formattedFriends);
   } catch (error) {
