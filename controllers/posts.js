@@ -35,6 +35,7 @@ const createPost = async (req, res) => {
     res.status(201).json(formattedPost[0]);
   } catch (error) {
     console.log(error.message);
+    fs.unlinkSync(req.file.path);
     res.status(409).json({ error: error.message });
   }
 };

@@ -77,10 +77,11 @@ io.on("connection", (socket) => {
 
   const userId = socket.handshake.query.userId;
   if (userId) userSocketMap[userId] = socket.id;
-
+  io.emit("onlineUsers", Object.keys(userSocketMap));
   socket.on("disconnect", () => {
     console.log(`${socket.id} disconnected`);
     delete userSocketMap[userId];
+    io.emit("onlineUsers", Object.keys(userSocketMap));
   });
 });
 
