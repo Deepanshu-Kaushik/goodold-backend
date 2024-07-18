@@ -1,3 +1,4 @@
+import { DateTime } from "luxon";
 import User from "../models/user.js";
 import formatFriends from "../utils/formatFriends.js";
 
@@ -56,4 +57,15 @@ const addRemoveFriend = async (req, res) => {
   }
 };
 
-export { getUser, getUserFriends, addRemoveFriend };
+const updateLastOnline = async (userId) => {
+  try {
+    const user = await User.findById(userId);
+    user.lastOnline = `${DateTime.now().toISO()}`;
+    await user.save();
+  } catch (error) {
+    console.log(error.message);
+    res.status(404).json({ error: error.message });
+  }
+};
+
+export { getUser, getUserFriends, addRemoveFriend, updateLastOnline };

@@ -21,6 +21,7 @@ import { verifyToken } from "./middlewares/auth.js";
 import User from "./models/user.js";
 import Post from "./models/posts.js";
 import { posts, users } from "./data/index.js";
+import { updateLastOnline } from "./controllers/user.js";
 
 /* CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url);
@@ -80,6 +81,7 @@ io.on("connection", (socket) => {
   io.emit("onlineUsers", Object.keys(userSocketMap));
   socket.on("disconnect", () => {
     console.log(`${socket.id} disconnected`);
+    updateLastOnline(userId);
     delete userSocketMap[userId];
     io.emit("onlineUsers", Object.keys(userSocketMap));
   });

@@ -29,6 +29,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    lastOnline: String,
     userPictureId: String,
     friends: {
       type: Array,
