@@ -1,6 +1,6 @@
 import { DateTime } from "luxon";
-import User from "../models/user.js";
-import formatFriends from "../utils/formatFriends.js";
+import User from "../models/user.model.js";
+import formatFriends from "../utils/formatFriends.util.js";
 
 const getUser = async (req, res) => {
   try {

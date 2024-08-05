@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import User from "../models/user.js";
-import { cloudinaryUpload } from "../services/cloudinary.js";
+import User from "../models/user.model.js";
+import { cloudinaryUpload } from "../services/cloudinary.service.js";
 import fs from "fs";
 
 /* REGISTER USER */
@@ -59,7 +59,8 @@ export async function login(req, res) {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ error: "Email or password is incorrect." });
+    if (!user)
+      return res.status(400).json({ error: "Email or password is incorrect." });
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch)

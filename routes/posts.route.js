@@ -5,8 +5,8 @@ import {
   getFeedPosts,
   getUserPosts,
   likePost,
-  newComment
-} from "../controllers/posts.js";
+  newComment,
+} from "../controllers/posts.controller.js";
 
 const router = express.Router();
 

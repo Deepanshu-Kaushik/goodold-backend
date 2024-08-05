@@ -1,8 +1,11 @@
-import Post from "../models/posts.js";
-import User from "../models/user.js";
-import { cloudinaryUpload, cloudinaryDelete } from "../services/cloudinary.js";
+import Post from "../models/posts.model.js";
+import User from "../models/user.model.js";
+import {
+  cloudinaryUpload,
+  cloudinaryDelete,
+} from "../services/cloudinary.service.js";
 import fs from "fs";
-import formatPosts from "../utils/formatPosts.js";
+import formatPosts from "../utils/formatPosts.util.js";
 
 /* CREATE */
 const createPost = async (req, res) => {

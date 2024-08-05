@@ -3,7 +3,7 @@ import {
   getUser,
   getUserFriends,
   addRemoveFriend,
-} from "../controllers/user.js";
+} from "../controllers/user.controller.js";
 
 const router = express.Router();
 
