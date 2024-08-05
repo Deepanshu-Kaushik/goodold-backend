@@ -2,6 +2,7 @@ import { DateTime } from 'luxon';
 import { io, userSocketMap } from '../index.js';
 import Conversation from '../models/conversation.model.js';
 import Message from '../models/message.model.js';
+import User from '../models/user.model.js';
 
 const getMessages = async (req, res) => {
   try {
@@ -102,10 +103,11 @@ const sendMessage = async (req, res) => {
     }
     await Promise.all([newMessage.save(), conversation.save()]);
     const receiverSocketId = userSocketMap[receiverId];
+    const senderData = await User.findById(newMessage.senderId);
     if (receiverSocketId) {
       io.to(receiverSocketId).emit('newMessage', newMessage);
       io.to(receiverSocketId).emit('chatRoomMessage', newMessage);
-      io.to(receiverSocketId).emit('messageNotification', newMessage);
+      io.to(receiverSocketId).emit('messageNotification', {newMessage, senderData});
     }
     res.status(201).json(newMessage);
   } catch (error) {
