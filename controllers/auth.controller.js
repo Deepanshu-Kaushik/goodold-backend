@@ -41,8 +41,6 @@ export async function register(req, res) {
       friends,
       location,
       occupation,
-      viewedProfile: Math.floor(Math.random() * 10000),
-      impressions: Math.floor(Math.random() * 10000),
     });
 
     const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
@@ -50,6 +48,7 @@ export async function register(req, res) {
     delete userObject.password;
     res.status(200).json({ token, user: userObject });
   } catch (error) {
+    console.log(error.message);
     res.status(400).json({ error: "User already exists on this email." });
   }
 }
@@ -71,6 +70,7 @@ export async function login(req, res) {
     delete userObject.password;
     res.status(200).json({ token, user: userObject });
   } catch (error) {
+    console.log(error.message);
     res.status(500).json({ error: error.message });
   }
 }
