@@ -64,7 +64,6 @@ export const cloudinaryDeleteFolder = async (folder) => {
     await cloudinary.api.delete_folder(folder);
     return;
   } catch (error) {
-    console.log(error);
     return error.message;
   }
 };
